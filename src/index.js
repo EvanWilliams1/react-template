@@ -1,23 +1,16 @@
 import React, { Component} from 'react';
 import { render } from 'react-dom';
-
-
+import { Router, Route, hashHistory, Link, IndexRoute } from 'react-router';
+import App from './App';
 
 const root = document.getElementById('root');
 
-class App extends Component{
-  constructor(props){
-    super();
-    this.specialNumber = props.specialNumber; 
-  }
-  render(){
-    return (
-      <div className='well'>
-        { this.specialNumber }
-      </div> 
-    );
-  }
-}
+const router = (
+  <Router history = {hashHistory}>
+    <Route path = '/' component = {App} >
+    </Route>
+  </Router>
+)
 
 
-render(<App specialNumber={42}/>, root);
+render(router, root);
